@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Meals List{% endblock %}
+
+{% block content %}
+<h2>Meals List</h2>
+<ul>
+    {% for meal in meals %}
+        <li>{{ meal.name }} - {{ meal.description }}</li>
+    {% empty %}
+        <li>No meals available.</li>
+    {% endfor %}
+</ul>
+{% endblock %}
