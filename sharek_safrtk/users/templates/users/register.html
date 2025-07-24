@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Register{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-8 col-lg-6">
+      <div class="card shadow-sm">
+        <div class="card-header bg-dark text-white text-center">
+          <h4 class="mb-0">Create Your Account</h4>
+        </div>
+        <div class="card-body">
+          <form method="POST">
+            {% csrf_token %}
+
+            <!-- Username -->
+            <div class="mb-3">
+              <label for="id_username" class="form-label">Username</label>
+              <input type="text" name="username" class="form-control" id="id_username" required>
+            </div>
+
+            <!-- Password -->
+            <div class="mb-3">
+              <label for="id_password1" class="form-label">Password</label>
+              <input type="password" name="password1" class="form-control" id="id_password1" required>
+              <div class="form-text">
+                Your password must contain at least 8 characters, cannot be too common, and cannot be entirely numeric.
+              </div>
+            </div>
+
+            <!-- Confirm Password -->
+            <div class="mb-3">
+              <label for="id_password2" class="form-label">Confirm Password</label>
+              <input type="password" name="password2" class="form-control" id="id_password2" required>
+            </div>
+
+            <!-- User Type -->
+            <div class="mb-3">
+              <label for="id_user_type" class="form-label">User Type</label>
+              <select name="user_type" class="form-control" id="id_user_type" required>
+                <option value="volunteer">Volunteer</option>
+                <option value="association">Association</option>
+              </select>
+            </div>
+
+            <!-- Phone -->
+            <div class="mb-3">
+              <label for="id_phone" class="form-label">Phone</label>
+              <input type="text" name="phone" class="form-control" id="id_phone">
+            </div>
+
+            <!-- Address -->
+            <div class="mb-3">
+              <label for="id_address" class="form-label">Address</label>
+              <textarea name="address" class="form-control" id="id_address" rows="3"></textarea>
+            </div>
+
+            <!-- Submit -->
+            <div class="d-grid">
+              <button type="submit" class="btn btn-primary btn-lg">Register</button>
+            </div>
+          </form>
+        </div>
+        <div class="card-footer text-center">
+          <small>Already have an account? <a href="{% url 'login' %}">Login here</a></small>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'meals',
     'ratings',
     'notifications',
+    
 ]
 
 MIDDLEWARE = [

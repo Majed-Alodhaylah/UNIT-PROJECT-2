@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<section class="banner text-center">
+  <div class="container">
+    <img src="{% static 'images/foodd.jpg' %}" alt="Sharing Food" class="banner-img mb-3">
+    <h1 class="display-5 fw-bold">Welcome to Sharek Safrtk</h1>
+    <p class="lead mt-2">
+      A platform that connects <strong>volunteers</strong> who have extra meals with <strong>charities</strong> in need.
+    </p>
+  </div>
+</section>
+
+<section class="features container mt-5">
+  <div class="row">
+    <div class="col-md-6 mb-4">
+      <div class="card feature-card shadow-sm h-100">
+        <img src="{% static 'images/volunteers.jpg' %}" class="card-img-top feature-img" alt="Volunteers">
+        <div class="card-body text-center">
+          <h3 class="card-title">For Volunteers</h3>
+          <p class="card-text">Do you have extra meals? Share them with charities easily through our platform.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6 mb-4">
+      <div class="card feature-card shadow-sm h-100">
+        <img src="{% static 'images/charities.jpg' %}" class="card-img-top feature-img" alt="Charities">
+        <div class="card-body text-center">
+          <h3 class="card-title">For Charities</h3>
+          <p class="card-text">Receive notifications of available meals and manage requests effortlessly.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}
