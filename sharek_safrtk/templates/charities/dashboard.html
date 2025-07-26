@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Charities Dashboard{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+  <h1 class="mb-4 text-center fw-bold">Charities Dashboard</h1>
+  <div class="row text-center">
+    <div class="col-md-4 mb-3">
+      <div class="card shadow-sm p-3">
+        <h5>Available Meals</h5>
+        <p class="display-6">24</p>
+      </div>
+    </div>
+    <div class="col-md-4 mb-3">
+      <div class="card shadow-sm p-3">
+        <h5>Active Volunteers</h5>
+        <p class="display-6">8</p>
+      </div>
+    </div>
+    <div class="col-md-4 mb-3">
+      <div class="card shadow-sm p-3">
+        <h5>Charities Registered</h5>
+        <p class="display-6">3</p>
+      </div>
+    </div>
+  </div>
+
+  <hr class="my-4">
+
+  <h3 class="mb-3">Charities List</h3>
+  <table class="table table-bordered text-center">
+    <thead class="table-light">
+      <tr>
+        <th>#</th>
+        <th>Name</th>
+        <th>Contact</th>
+        <th>Details</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1</td>
+        <td>Charity A</td>
+        <td>charityA@example.com</td>
+        <td><a href="#" class="btn btn-sm btn-success">View</a></td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>Charity B</td>
+        <td>charityB@example.com</td>
+        <td><a href="#" class="btn btn-sm btn-success">View</a></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+{% endblock %}

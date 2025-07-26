@@ -6,11 +6,29 @@
 {% block content %}
 <section class="banner text-center">
   <div class="container">
-    <img src="{% static 'images/foodd.jpg' %}" alt="Sharing Food" class="banner-img mb-3">
+    <img src="{% static 'images/foodd.jpg' %}" alt="Sharing Food" class="banner-img mb-3" style="max-height:200px;">
     <h1 class="display-5 fw-bold">Welcome to Sharek Safrtk</h1>
     <p class="lead mt-2">
       A platform that connects <strong>volunteers</strong> who have extra meals with <strong>charities</strong> in need.
     </p>
+
+    <div class="mt-4">
+      <a href="{% url 'charities_index' %}" class="btn btn-success btn-lg me-2">
+        Go to Charities
+      </a>
+      <a href="{% url 'login' %}" class="btn btn-outline-success btn-lg me-2">
+        Login
+      </a>
+      <a href="{% url 'register' %}" class="btn btn-outline-success btn-lg me-2">
+        Register
+      </a>
+      <a href="{% url 'volunteers_list' %}" class="btn btn-outline-success btn-lg me-2">
+        Volunteers
+      </a>
+      <a href="{% url 'meals_list' %}" class="btn btn-outline-success btn-lg me-2">
+        Meals
+    </a>
+    </div>
   </div>
 </section>
 
@@ -37,3 +55,4 @@
   </div>
 </section>
 {% endblock %}
+
