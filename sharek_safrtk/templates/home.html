@@ -1,58 +1,52 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load i18n %}
 
-{% block title %}Home{% endblock %}
+{% block title %}{% trans "Home" %}{% endblock %}
 
 {% block content %}
-<section class="banner text-center">
+<section class="banner text-center bg-light py-5">
   <div class="container">
-    <img src="{% static 'images/foodd.jpg' %}" alt="Sharing Food" class="banner-img mb-3" style="max-height:200px;">
-    <h1 class="display-5 fw-bold">Welcome to Sharek Safrtk</h1>
-    <p class="lead mt-2">
-      A platform that connects <strong>volunteers</strong> who have extra meals with <strong>charities</strong> in need.
+    <img src="{% static 'images/foodd.jpg' %}" alt="Food Donation"
+         class="img-fluid rounded shadow-sm mb-4" style="width:100%; max-height:400px; object-fit:cover;">
+    <h1 class="display-4 fw-bold">{% trans "Welcome to Sharek Safrtk" %}</h1>
+    <p class="lead mt-3">
+      {% trans "A platform that connects donors who have extra meals with charities in need." %}
     </p>
-
-    <div class="mt-4">
-      <a href="{% url 'charities_index' %}" class="btn btn-success btn-lg me-2">
-        Go to Charities
-      </a>
-      <a href="{% url 'login' %}" class="btn btn-outline-success btn-lg me-2">
-        Login
-      </a>
-      <a href="{% url 'register' %}" class="btn btn-outline-success btn-lg me-2">
-        Register
-      </a>
-      <a href="{% url 'volunteers_list' %}" class="btn btn-outline-success btn-lg me-2">
-        Volunteers
-      </a>
-      <a href="{% url 'meals_list' %}" class="btn btn-outline-success btn-lg me-2">
-        Meals
-    </a>
-    </div>
   </div>
+</section>
+
+<section class="about container mt-5">
+  <h2 class="text-center mb-4">{% trans "Why Sharek Safrtk?" %}</h2>
+  <p class="lead text-center">
+    {% blocktrans %}
+    In Saudi Arabia, food waste reaches 40 billion SAR annually. More than 33% of food is wasted.
+    Each person wastes about 184 kg of food per year. Bread, rice, and poultry are the most wasted items.
+    Our platform aims to reduce food waste by connecting donors with charities that deliver food to those in need.
+    {% endblocktrans %}
+  </p>
 </section>
 
 <section class="features container mt-5">
   <div class="row">
     <div class="col-md-6 mb-4">
-      <div class="card feature-card shadow-sm h-100">
-        <img src="{% static 'images/volunteers.jpg' %}" class="card-img-top feature-img" alt="Volunteers">
-        <div class="card-body text-center">
-          <h3 class="card-title">For Volunteers</h3>
-          <p class="card-text">Do you have extra meals? Share them with charities easily through our platform.</p>
+      <div class="card shadow-sm h-100 text-center">
+        <img src="{% static 'images/volunteers.jpg' %}" class="card-img-top" alt="Donors">
+        <div class="card-body">
+          <h3 class="card-title">{% trans "For Donors" %}</h3>
+          <p class="card-text">{% trans "Do you have extra meals? Share them easily with charities through our platform." %}</p>
         </div>
       </div>
     </div>
     <div class="col-md-6 mb-4">
-      <div class="card feature-card shadow-sm h-100">
-        <img src="{% static 'images/charities.jpg' %}" class="card-img-top feature-img" alt="Charities">
-        <div class="card-body text-center">
-          <h3 class="card-title">For Charities</h3>
-          <p class="card-text">Receive notifications of available meals and manage requests effortlessly.</p>
+      <div class="card shadow-sm h-100 text-center">
+        <img src="{% static 'images/charities.jpg' %}" class="card-img-top" alt="Charities">
+        <div class="card-body">
+          <h3 class="card-title">{% trans "For Charities" %}</h3>
+          <p class="card-text">{% trans "Receive notifications of available meals and manage requests effortlessly." %}</p>
         </div>
       </div>
     </div>
   </div>
 </section>
 {% endblock %}
-

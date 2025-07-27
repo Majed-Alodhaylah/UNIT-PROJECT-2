@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% block title %}Association Reports{% endblock %}
+{% block content %}
+<div class="container mt-4">
+  <h2>📊 Association Reports</h2>
+  <p>Total Volunteers: <strong>{{ volunteers_count }}</strong></p>
+
+  <table class="table table-bordered mt-3">
+    <thead>
+      <tr>
+        <th>Meal</th>
+        <th>Volunteer</th>
+        <th>Status</th>
+        <th>Comment</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for meal in meals %}
+      <tr>
+        <td>{{ meal.title }}</td>
+        <td>{{ meal.owner.username }}</td>
+        <td>
+          {% if meal.status == 'accepted' %}
+            <span class="badge bg-success">Accepted</span>
+          {% elif meal.status == 'rejected' %}
+            <span class="badge bg-danger">Rejected</span>
+          {% else %}
+            <span class="badge bg-warning text-dark">Pending</span>
+          {% endif %}
+        </td>
+        <td>{{ meal.comment_from_association }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock %}

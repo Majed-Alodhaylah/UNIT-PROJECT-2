@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Association Dashboard{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+  <h1 class="mb-4">🏢 Welcome, {{ request.user.username }}</h1>
+  <p class="mb-4">Here you can view all available meals and accept or reject them with a comment.</p>
+
+  {% if meals %}
+    <div class="row">
+      {% for meal in meals %}
+        <div class="col-md-4 mb-4">
+          <div class="card shadow-sm h-100">
+            {% if meal.image %}
+              <img src="{{ meal.image.url }}" class="card-img-top" alt="{{ meal.title }}" style="height:200px;object-fit:cover;">
+            {% else %}
+              <img src="{% static 'images/no-image.png' %}" class="card-img-top" alt="No Image" style="height:200px;object-fit:cover;">
+            {% endif %}
+            <div class="card-body">
+              <h5 class="card-title">{{ meal.title }}</h5>
+              <p class="card-text">{{ meal.description|truncatechars:80 }}</p>
+              <span class="badge bg-secondary">Quantity: {{ meal.quantity }}</span>
+              <p class="mt-2"><strong>By:</strong> {{ meal.owner.username }}</p>
+            </div>
+            <div class="card-footer">
+              <form method="post" action="{% url 'update_meal_status' meal.id %}">
+                {% csrf_token %}
+                <textarea name="comment" class="form-control mb-2" placeholder="Add a comment..."></textarea>
+                <button type="submit" name="action" value="accept" class="btn btn-success btn-sm w-100 mb-1">Accept</button>
+                <button type="submit" name="action" value="reject" class="btn btn-danger btn-sm w-100">Reject</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  {% else %}
+    <div class="alert alert-info">No meals available right now.</div>
+  {% endif %}
+</div>
+{% endblock %}

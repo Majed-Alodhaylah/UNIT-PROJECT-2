@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}الرئيسية{% endblock %}
+
+{% block content %}
+<section class="banner text-center bg-light py-5" dir="rtl">
+  <div class="container">
+    <img src="{% static 'images/foodd.jpg' %}" alt="مشاركة الطعام"
+         class="img-fluid rounded shadow-sm mb-4" style="width:100%; max-height:400px; object-fit:cover;">
+    <h1 class="display-4 fw-bold">مرحبًا بك في شارك سفرتك</h1>
+    <p class="lead mt-3">
+      منصة تربط <strong>المتبرعين بالوجبات</strong> مع <strong>الجمعيات الخيرية</strong> التي تتكفل بتوصيلها للمحتاجين.
+    </p>
+  </div>
+</section>
+
+<section class="about container mt-5" dir="rtl">
+  <h2 class="text-center mb-4">لماذا منصة شارك سفرتك؟</h2>
+  <p class="lead text-center">
+    في المملكة العربية السعودية يُقدَّر حجم الهدر الغذائي السنوي بحوالي <strong>40 مليار ريال سعودي</strong>،
+    حيث يتم هدر أكثر من <strong>33%</strong> من إجمالي الغذاء المتاح.
+    يهدر الفرد الواحد حوالي <strong>184 كيلوجرامًا</strong> من الطعام سنويًا.
+    أكثر الأطعمة إهدارًا: <strong>الخبز</strong> يليه <strong>الأرز</strong> و <strong>الدواجن</strong>.
+    <br><br>
+    <strong>هدف منصتنا</strong> هو تقليل هذا الهدر عن طريق ربط المتبرعين بالوجبات مع الجمعيات الخيرية التي تتكفل بتوصيلها للمحتاجين.
+  </p>
+</section>
+
+<section class="features container mt-5" dir="rtl">
+  <div class="row">
+    <div class="col-md-6 mb-4">
+      <div class="card shadow-sm h-100 text-center">
+        <img src="{% static 'images/volunteers.jpg' %}" class="card-img-top" alt="المتبرعين">
+        <div class="card-body">
+          <h3 class="card-title">للمتبرعين</h3>
+          <p class="card-text">
+            هل لديك وجبات زائدة؟ يمكنك مشاركتها بسهولة مع الجمعيات عبر منصتنا.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6 mb-4">
+      <div class="card shadow-sm h-100 text-center">
+        <img src="{% static 'images/charities.jpg' %}" class="card-img-top" alt="الجمعيات">
+        <div class="card-body">
+          <h3 class="card-title">للجمعيات الخيرية</h3>
+          <p class="card-text">
+            استقبل إشعارات بالوجبات المتاحة وأدر الطلبات بكل سهولة.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

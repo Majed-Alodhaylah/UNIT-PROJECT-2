@@ -9,16 +9,39 @@
   <link href="{% static 'css/style.css' %}" rel="stylesheet">
 </head>
 <body>
-  <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm py-2">
+  <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top">
     <div class="container">
-      <a class="navbar-brand d-flex align-items-center" href="{% url 'home' %}">
-        <img src="{% static 'images/logo.png' %}" alt="Logo" class="logo-img" style="height:40px;">
-        <span class="ms-2 fw-bold">Sharek Safrtk</span>
+      <a class="navbar-brand d-flex align-items-center fw-bold fs-4 text-success" href="{% url 'home' %}">
+        <img src="{% static 'images/logo.png' %}" alt="Logo" class="me-2" style="height:40px;">
+        Sharek Safrtk
       </a>
 
-      <div>
-        <a href="{% url 'login' %}" class="btn btn-success me-2">Login</a>
-        <a href="{% url 'register' %}" class="btn btn-outline-success">Register</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <div class="d-flex align-items-center">
+          {% if user.is_authenticated %}
+            {% if user.profile.user_type == 'volunteer' %}
+              <a href="{% url 'volunteer_dashboard' %}" class="btn btn-outline-primary me-2">My Meals</a>
+            {% elif user.profile.user_type == 'association' %}
+              <a href="{% url 'association_dashboard' %}" class="btn btn-outline-primary me-2">Dashboard</a>
+            {% endif %}
+
+            <span class="me-3">Welcome, {{ user.username }}</span>
+            <form method="post" action="{% url 'logout' %}" class="d-inline">
+              {% csrf_token %}
+              <button type="submit" class="btn btn-danger me-2">Logout</button>
+            </form>
+          {% else %}
+            <a href="{% url 'login' %}" class="btn btn-success me-2">Login</a>
+            <a href="{% url 'register' %}" class="btn btn-outline-success me-3">Register</a>
+          {% endif %}
+          <a href="{% url 'home_ar' %}" class="btn btn-outline-secondary btn-sm me-2">العربية</a>
+          <a href="{% url 'home' %}" class="btn btn-outline-secondary btn-sm">English</a>
+        </div>
       </div>
     </div>
   </nav>

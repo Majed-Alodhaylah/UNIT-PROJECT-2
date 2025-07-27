@@ -16,16 +16,22 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from django.views.generic import TemplateView
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', TemplateView.as_view(template_name='home.html'), name='home'),
+    path('ar/', TemplateView.as_view(template_name='home_ar.html'), name='home_ar'),
     path('meals/', include('meals.urls')),
     path('users/', include('users.urls')),
     path('charities/', TemplateView.as_view(template_name='charities/index.html'), name='charities_index'),
     path('volunteers/', TemplateView.as_view(template_name='volunteers/list.html'), name='volunteers_list'),
-    path('meals/list/', TemplateView.as_view(template_name='meals/list.html'), name='meals_list'),
-
 
 ]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+
 

@@ -6,55 +6,67 @@
 {% block content %}
 <div class="container mt-4">
   <div class="d-flex justify-content-between align-items-center mb-4">
-    <h2 class="mb-0">Meals List</h2>
+    <h2 class="mb-0 fw-bold">📋 Meals List</h2>
     <a href="{% url 'add_meal' %}" class="btn btn-success">
-      <i class="bi bi-plus-lg"></i> Add New Meal
+      <i class="bi bi-plus-lg"></i> Add Meal
     </a>
   </div>
 
-  <!-- Search form -->
   <form method="get" action="" class="mb-4 d-flex" role="search">
     <input 
-      class="form-control me-2"
-      type="search"
-      name="q"
-      placeholder="Search meals..."
-      aria-label="Search"
+      class="form-control me-2" 
+      type="search" 
+      name="q" 
+      placeholder="🔍 Search meals..." 
       value="{{ request.GET.q }}">
     <button class="btn btn-primary" type="submit">Search</button>
   </form>
 
   {% if meals %}
-    <div class="row">
-      {% for meal in meals %}
-        <div class="col-md-4 mb-4">
-          <div class="card h-100 shadow-sm">
-            {% if meal.image %}
-              <img src="{{ meal.image.url }}" class="card-img-top" alt="{{ meal.title }}" style="height:200px;object-fit:cover;">
-            {% else %}
-              <img src="{% static 'images/no-image.png' %}" class="card-img-top" alt="No Image" style="height:200px;object-fit:cover;">
-            {% endif %}
-            <div class="card-body">
-              <h5 class="card-title">{{ meal.title }}</h5>
-              <p class="card-text">{{ meal.description|truncatechars:100 }}</p>
-              <span class="badge bg-secondary">Quantity: {{ meal.quantity }}</span>
-              {% if meal.available %}
-                <span class="badge bg-success">Available</span>
+    <div class="table-responsive">
+      <table class="table table-bordered text-center align-middle shadow-sm">
+        <thead class="table-light">
+          <tr>
+            <th style="width:5%;">#</th>
+            <th style="width:20%;">Meal</th>
+            <th style="width:10%;">Quantity</th>
+            <th style="width:20%;">Image</th>
+            <th style="width:15%;">Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for meal in meals %}
+          <tr>
+            <td>{{ forloop.counter }}</td>
+            <td class="fw-semibold">{{ meal.title }}</td>
+            <td>{{ meal.quantity }}</td>
+            <td>
+              {% if meal.image %}
+                <img src="{{ meal.image.url }}" 
+                     alt="{{ meal.title }}" 
+                     style="width:100px;height:100px;object-fit:cover;border-radius:8px;">
               {% else %}
-                <span class="badge bg-danger">Not Available</span>
+                <img src="{% static 'images/no-image.png' %}" 
+                     alt="No Image" 
+                     style="width:100px;height:100px;object-fit:cover;border-radius:8px;">
               {% endif %}
-            </div>
-            <div class="card-footer text-muted small">
-              Added by: {{ meal.owner.username }}<br>
-              {{ meal.created_at|date:"M d, Y H:i" }}
-            </div>
-          </div>
-        </div>
-      {% endfor %}
+            </td>
+            <td>
+              {% if meal.available %}
+                <span class="badge bg-success px-3 py-2">✅ Available</span>
+              {% else %}
+                <span class="badge bg-secondary px-3 py-2">📦 Delivered</span>
+              {% endif %}
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
     </div>
   {% else %}
-    <div class="alert alert-info">No meals available.</div>
+    <div class="alert alert-info text-center">
+      🚫 No meals available.
+    </div>
   {% endif %}
 </div>
 {% endblock %}
-

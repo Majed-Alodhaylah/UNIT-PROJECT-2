@@ -6,61 +6,47 @@
 {% block content %}
 <div class="container mt-5">
   <div class="row justify-content-center">
-    <div class="col-md-8 col-lg-6">
-      <div class="card shadow-sm">
-        <div class="card-header bg-dark text-white text-center">
-          <h4 class="mb-0">Create Your Account</h4>
+    <div class="col-md-6">
+      <div class="card shadow">
+        <div class="card-header bg-success text-white text-center">
+          <h3>Create Your Account</h3>
         </div>
         <div class="card-body">
           <form method="POST">
             {% csrf_token %}
+            {{ form.non_field_errors }}
 
-            <!-- Username -->
             <div class="mb-3">
-              <label for="id_username" class="form-label">Username</label>
-              <input type="text" name="username" class="form-control" id="id_username" required>
+              <label class="form-label">Username</label>
+              {{ form.username }}
             </div>
 
-            <!-- Password -->
             <div class="mb-3">
-              <label for="id_password1" class="form-label">Password</label>
-              <input type="password" name="password1" class="form-control" id="id_password1" required>
-              <div class="form-text">
-                Your password must contain at least 8 characters, cannot be too common, and cannot be entirely numeric.
-              </div>
+              <label class="form-label">Password</label>
+              {{ form.password1 }}
             </div>
 
-            <!-- Confirm Password -->
             <div class="mb-3">
-              <label for="id_password2" class="form-label">Confirm Password</label>
-              <input type="password" name="password2" class="form-control" id="id_password2" required>
+              <label class="form-label">Confirm Password</label>
+              {{ form.password2 }}
             </div>
 
-            <!-- User Type -->
             <div class="mb-3">
-              <label for="id_user_type" class="form-label">User Type</label>
-              <select name="user_type" class="form-control" id="id_user_type" required>
-                <option value="volunteer">Volunteer</option>
-                <option value="association">Association</option>
-              </select>
+              <label class="form-label">User Type</label>
+              {{ form.user_type }}
             </div>
 
-            <!-- Phone -->
             <div class="mb-3">
-              <label for="id_phone" class="form-label">Phone</label>
-              <input type="text" name="phone" class="form-control" id="id_phone">
+              <label class="form-label">Phone</label>
+              {{ form.phone }}
             </div>
 
-            <!-- Address -->
             <div class="mb-3">
-              <label for="id_address" class="form-label">Address</label>
-              <textarea name="address" class="form-control" id="id_address" rows="3"></textarea>
+              <label class="form-label">Address</label>
+              {{ form.address }}
             </div>
 
-            <!-- Submit -->
-            <div class="d-grid">
-              <button type="submit" class="btn btn-primary btn-lg">Register</button>
-            </div>
+            <button type="submit" class="btn btn-success w-100">Register</button>
           </form>
         </div>
         <div class="card-footer text-center">
