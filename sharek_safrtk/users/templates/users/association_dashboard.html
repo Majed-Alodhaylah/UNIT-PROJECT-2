@@ -8,9 +8,43 @@
   <h1 class="mb-4">🏢 Welcome, {{ request.user.username }}</h1>
   <p class="mb-4">Here you can view all available meals and accept or reject them with a comment.</p>
 
-  {% if meals %}
+  <div class="alert alert-success">
+    ✅ You have accepted <strong>{{ accepted_count }}</strong> meals.
+  </div>
+
+  <h4 class="mt-5">Accepted Meals</h4>
+  {% if accepted_meals %}
+    <div class="table-responsive">
+      <table class="table table-bordered align-middle">
+        <thead class="table-light">
+          <tr>
+            <th>Meal</th>
+            <th>Donor</th>
+            <th>Quantity</th>
+            <th>Date</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for meal in accepted_meals %}
+            <tr>
+              <td>{{ meal.title }}</td>
+              <td>{{ meal.owner.username }}</td>
+              <td>{{ meal.quantity }}</td>
+              <td>{{ meal.created_at|date:"M d, Y H:i" }}</td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  {% else %}
+    <div class="alert alert-info">No accepted meals yet.</div>
+  {% endif %}
+
+  <!-- Pending Meals Section -->
+  <h4 class="mt-5">Pending Meals</h4>
+  {% if pending_meals %}
     <div class="row">
-      {% for meal in meals %}
+      {% for meal in pending_meals %}
         <div class="col-md-4 mb-4">
           <div class="card shadow-sm h-100">
             {% if meal.image %}
@@ -37,7 +71,7 @@
       {% endfor %}
     </div>
   {% else %}
-    <div class="alert alert-info">No meals available right now.</div>
+    <div class="alert alert-info">No pending meals available right now.</div>
   {% endif %}
 </div>
 {% endblock %}

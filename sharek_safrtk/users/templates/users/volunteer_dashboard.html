@@ -9,7 +9,7 @@
   <p class="mb-4">Here you can see all your meals and their current status.</p>
 
   <div class="d-flex justify-content-start mb-4">
-    <a href="{% url 'add_meal' %}" class="btn btn-primary me-2">➕ Add New Meal</a>
+    <a href="{% url 'add_meal' %}" class="btn btn-success me-2">➕ Add New Meal</a>
     <a href="{% url 'home' %}" class="btn btn-outline-secondary">🏠 Back to Home</a>
   </div>
 
@@ -33,9 +33,14 @@
                 <span class="badge bg-warning ms-2">Pending</span>
               {% elif meal.status == "accepted" %}
                 <span class="badge bg-success ms-2">Accepted</span>
-                {% if meal.comment_from_association %}
-                  <p class="mt-2 text-success"><strong>Comment:</strong> {{ meal.comment_from_association }}</p>
-                {% endif %}
+                <div class="mt-2 text-success small">
+                  {% if meal.accepted_by %}
+                    <strong>Accepted by:</strong> {{ meal.accepted_by.username }}<br>
+                  {% endif %}
+                  {% if meal.comment_from_association %}
+                    <strong>Comment:</strong> {{ meal.comment_from_association }}
+                  {% endif %}
+                </div>
               {% elif meal.status == "rejected" %}
                 <span class="badge bg-danger ms-2">Rejected</span>
                 {% if meal.comment_from_association %}

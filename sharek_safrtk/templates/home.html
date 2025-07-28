@@ -8,39 +8,41 @@
 <section class="banner text-center bg-light py-5">
   <div class="container">
     <img src="{% static 'images/foodd.jpg' %}" alt="Food Donation"
-         class="img-fluid rounded shadow-sm mb-4" style="width:100%; max-height:400px; object-fit:cover;">
+     class="banner-img mb-4">
     <h1 class="display-4 fw-bold">{% trans "Welcome to Sharek Safrtk" %}</h1>
-    <p class="lead mt-3">
-      {% trans "A platform that connects donors who have extra meals with charities in need." %}
-    </p>
+    <p class="lead mt-3 fw-semibold fs-4 text-dark">
+  {% trans "A platform that empowers volunteers to share surplus meals with charities serving those in need." %}
+</p>
+
   </div>
 </section>
 
 <section class="about container mt-5">
-  <h2 class="text-center mb-4">{% trans "Why Sharek Safrtk?" %}</h2>
-  <p class="lead text-center">
-    {% blocktrans %}
-    In Saudi Arabia, food waste reaches 40 billion SAR annually. More than 33% of food is wasted.
-    Each person wastes about 184 kg of food per year. Bread, rice, and poultry are the most wasted items.
-    Our platform aims to reduce food waste by connecting donors with charities that deliver food to those in need.
-    {% endblocktrans %}
-  </p>
+<h2 class="text-center mb-4 display-5 fw-bold text-dark">{% trans "Why Sharek Safrtk?" %}</h2>
+  <p class="lead text-center fw-semibold fs-4 text-dark">
+  {% blocktrans %}
+  In Saudi Arabia, over 40 billion SAR worth of food is wasted every year, with more than 33% of all food going to waste. 
+  On average, each individual discards nearly 184 kg of food annually — especially staples like bread, rice, and poultry. 
+  Sharek Safrtk is tackling this challenge by empowering volunteers to share excess meals with charities that support families in need.
+  {% endblocktrans %}
+</p>
+
 </section>
 
-<section class="features container mt-5">
+<section class="features container mt-5 mb-5">
   <div class="row">
     <div class="col-md-6 mb-4">
-      <div class="card shadow-sm h-100 text-center">
-        <img src="{% static 'images/volunteers.jpg' %}" class="card-img-top" alt="Donors">
+      <div class="card feature-card text-center">
+        <img src="{% static 'images/volunteers.jpg' %}" class="feature-img" alt="Donors">
         <div class="card-body">
-          <h3 class="card-title">{% trans "For Donors" %}</h3>
+          <h3 class="card-title">{% trans "For volunteers" %}</h3>
           <p class="card-text">{% trans "Do you have extra meals? Share them easily with charities through our platform." %}</p>
         </div>
       </div>
     </div>
     <div class="col-md-6 mb-4">
-      <div class="card shadow-sm h-100 text-center">
-        <img src="{% static 'images/charities.jpg' %}" class="card-img-top" alt="Charities">
+      <div class="card feature-card text-center">
+        <img src="{% static 'images/charities.jpg' %}" class="feature-img" alt="Charities">
         <div class="card-body">
           <h3 class="card-title">{% trans "For Charities" %}</h3>
           <p class="card-text">{% trans "Receive notifications of available meals and manage requests effortlessly." %}</p>

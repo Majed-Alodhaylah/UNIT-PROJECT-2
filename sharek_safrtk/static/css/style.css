@@ -1,5 +1,5 @@
 .logo-img {
-  height: 70px;
+  height: 100px;
   width: auto;
 }
 
@@ -10,15 +10,16 @@
   border-radius: 10px;
 }
 .banner-img {
-  max-width: 100%;       
-  height: auto;          
-  max-height: 350px;     
-  object-fit: cover;     
-  border-radius: 12px;   
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); 
+  width: 100%;
+  height: 400px;
+  object-fit: cover;  
+  object-position: center center; 
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   display: block;
-  margin: 0 auto;        
+  margin: 0 auto;
 }
+
 
 .feature-card {
   border: none;
@@ -31,10 +32,43 @@
 }
 .feature-img {
   width: 100%;
-  height: 250px;  
-  object-fit: cover;    
+  height: 250px;
+  object-fit: cover;
+  border-radius: 0;
 }
 .card-title {
   font-weight: bold;
   margin-top: 10px;
 }
+.custom-footer {
+  background-color: #3A5A40;  
+  color: #ffffff;            
+  padding: 20px 0;
+  text-align: center;
+}
+
+.custom-footer p {
+  color: #ffffff;            
+  margin: 0;
+  font-size: 0.9rem;
+}
+html, body {
+  height: 100%;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
+}
+.btn-custom-green {
+  background-color: #2f7440;
+  color: white;
+  border: none;
+}
+.btn-custom-green:hover {
+  background-color: #256835;
+}
+
+

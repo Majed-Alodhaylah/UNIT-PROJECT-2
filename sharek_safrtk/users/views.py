@@ -48,7 +48,7 @@ def custom_login_view(request):
 def volunteer_dashboard(request):
     if not hasattr(request.user, 'profile') or request.user.profile.user_type != 'volunteer':
         return redirect('home')
-    meals = request.user.meals_owned.all()
+    meals = request.user.meals_owned.select_related('accepted_by').all()
     return render(request, 'users/volunteer_dashboard.html', {'meals': meals})
 
 
@@ -56,8 +56,14 @@ def volunteer_dashboard(request):
 def association_dashboard(request):
     if not hasattr(request.user, 'profile') or request.user.profile.user_type != 'association':
         return redirect('home')
-    meals = Meal.objects.filter(status='pending')  
-    return render(request, 'users/association_dashboard.html', {'meals': meals})
+    pending_meals = Meal.objects.filter(status='pending')
+    accepted_meals = Meal.objects.filter(status='accepted', accepted_by=request.user)
+    return render(request, 'users/association_dashboard.html', {
+        'pending_meals': pending_meals,
+        'accepted_meals': accepted_meals,
+        'accepted_count': accepted_meals.count()
+    })
+
 
 
 @login_required
