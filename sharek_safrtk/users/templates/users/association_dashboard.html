@@ -11,6 +11,11 @@
   <div class="alert alert-success">
     ✅ You have accepted <strong>{{ accepted_count }}</strong> meals.
   </div>
+  <div class="text-end mb-4">
+  <a href="{% url 'association_reports' %}" class="btn btn-success">
+  📊 View Reports
+</a>
+</div>
 
   <h4 class="mt-5">Accepted Meals</h4>
   {% if accepted_meals %}

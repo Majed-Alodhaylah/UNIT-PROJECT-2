@@ -9,4 +9,6 @@ urlpatterns = [
     path('association/dashboard/', views.association_dashboard, name='association_dashboard'),
     path('association/update_meal/<int:meal_id>/', views.update_meal_status, name='update_meal_status'),
     path('association/reports/', views.association_reports, name='association_reports'),
+
+
 ]
