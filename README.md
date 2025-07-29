@@ -62,7 +62,7 @@ Generate insights on food waste reduction and platform activity.
 
 
 # UML:
-[UML Diagram](Screenshot/uml.png)
+[UML Diagram](Screenshots/UML.png)
 
 
 
@@ -70,4 +70,4 @@ Generate insights on food waste reduction and platform activity.
 
 # Wireframe:
 
-[Wireframe Design](Screenshot/wireframe.png)
+[Wireframe Design](Screenshots/Wireframe.png)
