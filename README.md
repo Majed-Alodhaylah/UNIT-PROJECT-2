@@ -1,136 +1,73 @@
-# UNIT-PROJECT-2
+# 📦 Project Name
+Sharek Safrtk
 
-## Create a Project of your own choosing
+# 📄 Project Description
+Sharek Safrtk is a platform that connects volunteers who have surplus meals with charitable organizations that distribute them to those in need. The goal is to reduce food waste and support underprivileged families in Saudi Arabia by making food donation easier and more reliable.
 
-Base on what you’ve learned until now , create a project of your choosing. Impress us with your creativity and execution.
+# 🌟 Features
+User registration and login with role selection (Volunteer / Association)
 
+Volunteers can add, view, and delete surplus meals
 
-## Minimum Requirements
-- Use Django.
-- Use Templates & Template Inheritance.
-- Use static, media & dynamic urls as needed.
-- Organize your project in apps as needed.
-- Use models to represent you data.
-- Use a CSS library to style your website.
-- Must be responsive (good looking of big screens and small screens).
-- Use naming conventions & best practices.
-- Strive to make the user journey intuitive and complete.
+Charities can view meals, accept or reject them with comments
 
-## Use python-dotenv to save your sensitive data.
-- https://pypi.org/project/python-dotenv/
+Dashboard for both user types
 
+Filtering and status tracking of meals (pending, accepted, rejected)
 
-## Use a CDN or cloud storage provider to sore your large static files (videos, images, etc.), such as:
-- https://firebase.google.com/docs/storage
+Association reports with filters and export support (to be added)
 
-## Use Git & Github to manage and track changes in your project.
-- At lease commit and sync the changes once at the end of everyday.
-
-## Edit the README.md file to include (include the info at the top):
-- Project Name
-- Project Description
-- Features list.
-- User Stories (link or file)
-- UML (link or file)
-- Wireframe (link or file)
+Bilingual support (Arabic and English)
 
 
-## Example Projects :
-
-
-1. **Task Management System:**
-- **Overview:** Create a platform for managing tasks and projects within a team or organization.
-- **Features:**
-- Task creation, assignment, and tracking.
-- Project management with milestones.
-- File uploads and comments on tasks.
-- Notification system for task updates.
-
-
-
-
-**Online Learning Platform:**
-
-- **Overview:** Develop a platform for online courses, quizzes, and educational resources.
-- **Features:**
-- Course creation and enrollment.
-- Quiz and assessment functionalities.
-- Progress tracking and certificates.
-
-
-
-
-**Crowdfunding Platform:**
-
-- **Overview:** Build a crowdfunding website where users can create campaigns and seek financial support for their projects.
-- **Features:**
-    -  project history.
-    - Campaign creation and customization.
-    - Payment integration for contributions.
-    - Progress tracking and updates.
-
-**Job Board and Recruitment System:**
-
-- **Overview:** Develop a platform for job seekers and employers to connect.
-- **Features:**
-    - User profiles with resumes.
-    - Job posting and application functionalities.
-    - Search and filter options for jobs.
-    - Employer dashboards for managing postings.
-
-
-**Inventory Management System:**
-
-- **Overview:** Build a system for tracking and managing inventory for businesses.
-- **Features:**
-    - Product catalog with stock levels.
-    - Order processing and tracking.
-    - Reporting and analytics.
-
-
-**Recipe Sharing Platform:**
-
-- **Overview:** Create a platform where users can share and discover recipes.
-- **Features:**
-    - saved recipes.
-    - Recipe creation and editing.
-    - Search and categorization of recipes.
-    - User ratings and reviews.
-      
-## Resources:
-
-**Free high quality images :**
-
-- https://www.pexels.com/
-- https://unsplash.com
-
-**Free sounds website:**
-
-- https://mixkit.co/
-
-**Free stock videos:**
-
-- https://pixabay.com/videos/
-
-**Free Fonts:**
-
-- https://fonts.google.com
-
-**Free Icons**
-
-- https://fonts.google.com/icons
-- https://icons.getbootstrap.com/
-
-**CSS Library:**
-
-- https://getbootstrap.com/
-- https://get.foundation/index.html
-
-**CSS Animation libraries:**
-
-- https://animate.style
-- https://www.minimamente.com/project/magic/
-
-
-
+# User Stories:
  
+ As a visitor, I want to:
+
+View the landing page in Arabic or English, so I can understand the platform easily.
+
+See the purpose of the project and how it works before signing up.
+
+🙋 As a volunteer, I want to:
+
+Register an account as a volunteer so I can contribute surplus meals.
+
+Login to my account and go to my dashboard.
+
+Add new meals with title, description, quantity, and optional image.
+
+View all my submitted meals and see their status (pending / accepted / rejected).
+
+Delete any of my meals that are no longer available.
+
+View comments from associations when meals are accepted or rejected.
+
+🏢 As an association, I want to:
+
+Register as an association and access my own dashboard.
+
+View all pending meals submitted by volunteers.
+
+Accept or reject meals and leave an optional comment.
+
+View a table of all accepted meals with volunteer name and date.
+
+View reports and filter meals by status.
+
+⚙️ As an admin (future scope), I want to:
+
+Manage users and monitor meal data.
+
+Generate insights on food waste reduction and platform activity.
+
+
+# UML:
+![UML Diagram](screenshot/uml.png)
+
+
+
+
+
+# Wireframe:
+
+![Wireframe Design](screenshot/wireframe.png)
