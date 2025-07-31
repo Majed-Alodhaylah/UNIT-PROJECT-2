@@ -7,7 +7,8 @@ SECRET_KEY = 'django-insecure-xnjzcj52uq(14m#jafw*-1f4s0fd_#5p6&9wjcnskn2hq98e-p
 
 DEBUG = True
 
-ALLOWED_HOSTS = ["*"]
+import os
+ALLOWED_HOSTS = ['*']
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -99,7 +100,6 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
 ]
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 MEDIA_URL = '/media/'
