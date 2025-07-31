@@ -62,7 +62,7 @@ Generate insights on food waste reduction and platform activity.
 
 
 # UML:
-[UML Diagram](Screenshots/UML.png)
+![UML Diagram](sharek_safrtk/static/images/uml.png)
 
 
 
@@ -70,4 +70,7 @@ Generate insights on food waste reduction and platform activity.
 
 # Wireframe:
 
-[Wireframe Design](Screenshots/Wireframe.png)
+![Wireframe Design](sharek_safrtk/static/images/wireframe.png)
+
+# Url:
+shareksefrtk.up.railway.app

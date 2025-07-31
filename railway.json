@@ -4,8 +4,6 @@
     "builder": "NIXPACKS"
   },
   "deploy": {
-    "startCommand": "python manage.py migrate && python manage.py collectstatic --noinput && gunicorn sharek_safrtk.wsgi"
-
-
+    "startCommand": "python sharek_safrtk/manage.py migrate && python sharek_safrtk/manage.py collectstatic --noinput && gunicorn sharek_safrtk.sharek_safrtk.wsgi:application"
   }
 }
